@@ -8,24 +8,52 @@
         <form class="w-11/12 md:w-7/12 lg:w-5/12 xl:w-1/4 mx-auto mt-10">
             <div class="grid grid-cols-2 gap-5">
                 <div>
-                    <text-input placeholder="First name" required />
+                    <text-input
+                        placeholder="First name"
+                        required
+                        @input="({ target: { value } }) => (formData.firstName = value)"
+                    />
                 </div>
                 <div>
-                    <text-input placeholder="Last name" required />
+                    <text-input
+                        placeholder="Last name"
+                        required
+                        @input="({ target: { value } }) => (formData.lastName = value)"
+                    />
                 </div>
             </div>
             <div class="mt-6">
-                <text-input placeholder="Email Address" type="email" required />
+                <text-input
+                    placeholder="Email Address"
+                    type="email"
+                    required
+                    @input="({ target: { value } }) => (formData.email = value)"
+                />
             </div>
             <div class="mt-6">
-                <text-input placeholder="Date of Birth" type="date" required />
+                <text-input
+                    placeholder="Date of Birth"
+                    type="date"
+                    required
+                    @input="({ target: { value } }) => (formData.dob = value)"
+                />
             </div>
             <div class="grid grid-cols-2 gap-5 mt-6">
                 <div>
-                    <text-input placeholder="Password" type="password" required />
+                    <text-input
+                        placeholder="Password"
+                        type="password"
+                        @input="({ target: { value } }) => (formData.password = value)"
+                        required
+                    />
                 </div>
                 <div>
-                    <text-input placeholder="Confirm Password" type="password" required />
+                    <text-input
+                        placeholder="Confirm Password"
+                        type="password"
+                        @input="({ target: { value } }) => (confirmPassword = value)"
+                        required
+                    />
                 </div>
             </div>
 
@@ -50,6 +78,20 @@ import Button from "../components/Button.vue";
 import TextInput from "../components/TextInput.vue";
 export default {
     name: "Login",
+
+    data() {
+        return {
+            formData: {
+                firstName: "",
+                lastName: "",
+                email: "",
+                dob: "",
+                password: "",
+            },
+
+            confirmPassword: "",
+        };
+    },
 
     components: {
         TextInput,

@@ -7,10 +7,20 @@
 
         <form class="w-11/12 md:w-7/12 lg:w-5/12 xl:w-1/4 mx-auto mt-10">
             <div>
-                <text-input placeholder="Phone number or email" required />
+                <text-input
+                    placeholder="Email address"
+                    type="email"
+                    required
+                    @input="({ target: { value } }) => (email = value)"
+                />
             </div>
             <div class="mt-6">
-                <text-input placeholder="Password" type="password" required />
+                <text-input
+                    placeholder="Password"
+                    type="password"
+                    required
+                    @input="({ target: { value } }) => (password = value)"
+                />
             </div>
             <div class="text-right my-3">
                 <router-link to="/forgot-password" class="text-grey text-xs hover:text-white"
@@ -39,6 +49,12 @@ import Button from "../components/Button.vue";
 import TextInput from "../components/TextInput.vue";
 export default {
     name: "Login",
+
+    data() {
+        return {
+            email: "",
+        };
+    },
 
     components: {
         TextInput,
