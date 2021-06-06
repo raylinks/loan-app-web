@@ -1,6 +1,6 @@
 import axios from 'axios'
 import router from '@/router'
-import store from '../store'
+// import store from '../store'
 
 //import { refreshTokenApi } from '@/api/token'
 
@@ -29,7 +29,7 @@ http.interceptors.request.use(
 )
 
 
-let isRefreshing = false
+// let isRefreshing = false
 const refreshSubscribers = []
 
 http.interceptors.response.use(
@@ -52,7 +52,7 @@ http.interceptors.response.use(
         router.push('/login')
       }
      
-      const retryOrigReq = new Promise((resolve, reject) => {
+      const retryOrigReq = new Promise((resolve) => {
         subscribeTokenRefresh(token => {
           // replace the expired token and retry
           originalRequest.headers.Authorization = 'Bearer ' + token
@@ -70,8 +70,8 @@ function subscribeTokenRefresh (cb) {
   refreshSubscribers.push(cb)
 }
 
-function onRrefreshed (token) {
-  refreshSubscribers.map(cb => cb(token))
-}
+// function onRrefreshed (token) {
+//   refreshSubscribers.map(cb => cb(token))
+// }
 
 export default http

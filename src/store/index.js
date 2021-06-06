@@ -1,22 +1,17 @@
-import Vue from 'vue'
-import Vuex  from 'vuex'
-import createLogger from 'vuex/dist/logger'
-import auth from './modules/auth'
+import { createStore } from "vuex";
+import createLogger from "vuex/dist/logger";
+import auth from "./modules/auth";
 
-Vue.use(Vuex)
+const debug = process.env.NODE_ENV !== "production";
 
-const debug = process.env.NODE_ENV !== 'production'
-
-export default new Vuex.Store({
-  state: {},
-  getters: {},
-  mutations: {},
-  actions: {},
-  modules: {
-    auth,
-
-  },
-  strict: debug,
-  plugins: debug ? [createLogger()] : []
-})
-
+export default createStore({
+    state: {},
+    getters: {},
+    mutations: {},
+    actions: {},
+    modules: {
+        auth,
+    },
+    strict: debug,
+    plugins: debug ? [createLogger()] : [],
+});

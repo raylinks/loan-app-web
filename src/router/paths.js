@@ -4,4 +4,5 @@ export default [
     { path: "/register", component: () => import("@/views/Register"), meta: { layout: "authentication" } },
     { path: "/forgot-password", component: () => import("@/views/ForgotPassword"), meta: { layout: "authentication" } },
     { path: "/verify-email", component: () => import("@/views/VerifyEmail"), meta: { layout: "authentication" } },
+    { path: "/create-password", component: () => import("@/views/CreatePassword"), meta: { layout: "authentication" } },
 ];
