@@ -11,6 +11,7 @@
                     <text-input
                         placeholder="First name"
                         required
+                           v-model="formData.firstName"
                         @input="({ target: { value } }) => (formData.firstName = value)"
                     />
                 </div>
@@ -18,6 +19,7 @@
                     <text-input
                         placeholder="Last name"
                         required
+                         v-model="formData.lastName"
                         @input="({ target: { value } }) => (formData.lastName = value)"
                     />
                 </div>
@@ -27,15 +29,17 @@
                     placeholder="Email Address"
                     type="email"
                     required
+                     v-model="formData.email"
                     @input="({ target: { value } }) => (formData.email = value)"
                 />
             </div>
             <div class="mt-6">
                 <text-input
-                    placeholder="Date of Birth"
+                    placeholder="Phone Number"
                     type="date"
                     required
-                    @input="({ target: { value } }) => (formData.dob = value)"
+                     v-model="formData.phoneNumber"
+                    @input="({ target: { value } }) => (formData.phoneNumber = value)"
                 />
             </div>
             <div class="grid grid-cols-2 gap-5 mt-6">
@@ -43,6 +47,7 @@
                     <text-input
                         placeholder="Password"
                         type="password"
+                         v-model="formData.password"
                         @input="({ target: { value } }) => (formData.password = value)"
                         required
                     />
@@ -74,8 +79,11 @@
 </template>
 
 <script>
+import validator from 'validator'
+//import _ from 'lodash'
 import Button from "../components/Button.vue";
 import TextInput from "../components/TextInput.vue";
+import { isEmailAvailable , userSave } from '@/api/register'
 export default {
     name: "Login",
 
@@ -85,7 +93,7 @@ export default {
                 firstName: "",
                 lastName: "",
                 email: "",
-                dob: "",
+                phoneNumber: "",
                 password: "",
             },
 
@@ -97,6 +105,59 @@ export default {
         TextInput,
         Button,
     },
+     register () {
+     //this.$root.showLoader()
+
+      userSave({
+        email: this.formData.email,
+        first_name: this.formData.firstName,
+        last_name: this.formData.lastName,
+        password: this.formData.password,
+        phone_number: this.phoneNumber || ''
+      })
+        .then(res => {
+             
+           console.log(res);
+          // save to store for the next screen
+          this.$store.dispatch('SET_USER', {
+            email: this.email,
+            username: this.username,
+            password: this.password
+          });
+
+          this.$cookies.set('user', {
+            email:this.formData.email,
+            first_name: this.formData.firstName,
+            last_name : this.formData.lastName,
+            password: this.formData.password,
+            phone_number: this.phoneNumber || ''
+          });
+
+          this.$router.push('/register/confirm')
+          return false
+        })
+        .catch(error => {
+            console.log(error);
+      
+        })
+    },
+     verifyEmail () {
+      // Verify correctness here.
+      if (!validator.isEmail(this.email)) return
+
+      // Verify availablity of email from DB
+      isEmailAvailable(this.email)
+        .then(response => {
+          const available = response.data.data.is_available
+          this.isEmailTaken = !available
+          this.emailState = available ? this.checkmark : this.cancel
+          this.shouldEnable()
+        })
+        .catch(error => {
+          return error
+        })
+    },
+  
 };
 </script>
 

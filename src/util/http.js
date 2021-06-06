@@ -2,7 +2,7 @@ import axios from 'axios'
 import router from '@/router'
 import store from '../store'
 
-import { refreshTokenApi } from '@/api/token'
+//import { refreshTokenApi } from '@/api/token'
 
 // This is the base URL where requests comes from
 const http = axios.create({
@@ -51,24 +51,7 @@ http.interceptors.response.use(
         window.$cookies.remove('user')
         router.push('/login')
       }
-      if (!isRefreshing) {
-        isRefreshing = true
-        refreshTokenApi()
-          .then(res => {
-            store.dispatch('SET_SESSION_TIMEOUT')
-            const token = res.headers.authorization.split(' ')[1]
-            store.dispatch('SET_TOKEN', token)
-            store.dispatch('SET_SESSION_TIMEOUT', true)
-            window.$cookies.set('token', token)
-            isRefreshing = false
-            onRrefreshed(token)
-          })
-          .catch(() => {
-            window.$cookies.remove('token')
-            window.$cookies.remove('user')
-            router.push('/login')
-          })
-      }
+     
       const retryOrigReq = new Promise((resolve, reject) => {
         subscribeTokenRefresh(token => {
           // replace the expired token and retry

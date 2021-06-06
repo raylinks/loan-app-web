@@ -10,9 +10,11 @@
   "dependencies": {
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "validator": "^13.6.0",
     "vue": "^3.0.0",
+    "vue-cookies": "^1.7.4",
     "vue-router": "^4.0.8",
-    "vuex": "^3.6.2"
+    "vuex": "^4.0.0-alpha.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -27,9 +29,10 @@
     "tailwindcss": "npm:@tailwindcss/postcss7-compat"
   },
   "eslintConfig": {
-    "root": true,
+    "root": false,
     "env": {
-      "node": true
+      "node": true,
+      "commonjs": true
     },
     "extends": [
       "plugin:vue/vue3-essential",
@@ -44,5 +47,8 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "rules": {
+    "no-unused-vars": "off"
+  }
 }
