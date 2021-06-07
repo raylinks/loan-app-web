@@ -1,23 +1,24 @@
 <template>
     <div class="w-full">
         <div class="text-center">
-            <h1 class="text-white font-bold text-2xl">SIGN UP</h1>
-            <p class="text-sm text-white opacity-75 mt-3">Lorem ipsum dolor si amet</p>
+            <h1 class="text-white font-bold text-2xl">Create an account</h1>
+            <p class="text-sm text-white opacity-75 mt-3">Let's get to know you</p>
         </div>
 
-        <form class="w-11/12 md:w-7/12 lg:w-5/12 xl:w-1/4 mx-auto mt-10">
+        <form class="w-11/12 md:w-7/12 lg:w-5/12 xl:w-1/4 mx-auto mt-10" @submit.prevent="register">
             <div class="grid grid-cols-2 gap-5">
                 <div>
                     <text-input
                         placeholder="First name"
+                        type="text"
                         required
-                           v-model="formData.firstName"
-                        @input="({ target: { value } }) => (formData.firstName = value)"
+                          @input="({ target: { value } }) => (formData.lastName = value)"
                     />
                 </div>
                 <div>
                     <text-input
                         placeholder="Last name"
+                        type="text"
                         required
                          v-model="formData.lastName"
                         @input="({ target: { value } }) => (formData.lastName = value)"
@@ -36,7 +37,7 @@
             <div class="mt-6">
                 <text-input
                     placeholder="Phone Number"
-                    type="date"
+                    type="text"
                     required
                      v-model="formData.phoneNumber"
                     @input="({ target: { value } }) => (formData.phoneNumber = value)"
@@ -63,7 +64,8 @@
             </div>
 
             <div class="mt-10">
-                <Button>
+                <Button
+                 type="submit">
                     Continue
                 </Button>
             </div>
@@ -83,7 +85,7 @@ import validator from 'validator'
 //import _ from 'lodash'
 import Button from "../components/Button.vue";
 import TextInput from "../components/TextInput.vue";
-import { isEmailAvailable , userSave } from '@/api/register'
+import { isEmailAvailable , register } from '@/api/register'
 export default {
     name: "Login",
 
@@ -108,7 +110,7 @@ export default {
      register () {
      //this.$root.showLoader()
 
-      userSave({
+      register({
         email: this.formData.email,
         first_name: this.formData.firstName,
         last_name: this.formData.lastName,

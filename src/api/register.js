@@ -1,7 +1,7 @@
 import http from '@/util/http'
 
 
-export async function userSave (user) {
+export async function register (user) {
     const accountDetails = await http.post(
       '/register?callback_url=' +
         process.env.VUE_APP_URL +
