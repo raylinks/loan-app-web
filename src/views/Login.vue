@@ -7,20 +7,10 @@
 
         <form class="w-11/12 md:w-7/12 lg:w-5/12 xl:w-1/4 mx-auto mt-10" @submit.prevent="submitForm">
             <div>
-                <text-input
-                    placeholder="Email address"
-                    type="email"
-                    required
-                    @input="({ target: { value } }) => (email = value)"
-                />
+                <text-input placeholder="Email address" type="email" required v-model="email" />
             </div>
             <div class="mt-6">
-                <text-input
-                    placeholder="Password"
-                    type="password"
-                    required
-                    @input="({ target: { value } }) => (password = value)"
-                />
+                <text-input placeholder="Password" type="password" required v-model="password" />
             </div>
             <div class="text-right my-3">
                 <router-link to="/forgot-password" class="text-grey text-xs hover:text-primary duration-500"
