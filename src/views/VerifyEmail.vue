@@ -47,10 +47,10 @@ export default {
                 .then((response) => {
                     this.loading = false;
                     console.log(response);
-                    this.$wkToast("Account has been verified successfully");
+                    this.$wkToast("Account has been verified successfully, redirecting to login now...");
 
                     setTimeout(() => {
-                        this.$router.push("/");
+                        this.$router.push("/login");
                     }, 1500);
                 })
                 .catch((error) => {

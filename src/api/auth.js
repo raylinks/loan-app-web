@@ -11,3 +11,7 @@ export async function registerUser(user) {
 export const verifyToken = async (token) => {
     return await http.post("/api/verify-otp", { token });
 };
+
+export const forgotPassword = async (email) => {
+    return await http.post("/api/forgot-password", { email });
+};

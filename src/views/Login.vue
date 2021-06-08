@@ -63,6 +63,11 @@ export default {
                 .then((response) => {
                     this.loading = false;
                     console.log(response);
+                    this.$wkToast("Logged in successfully");
+
+                    setTimeout(() => {
+                        this.$router.push("/");
+                    }, 1500);
                 })
                 .catch((error) => {
                     this.loading = false;
