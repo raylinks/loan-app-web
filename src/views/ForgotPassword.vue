@@ -30,6 +30,7 @@
 import Button from "../components/Button.vue";
 import TextInput from "../components/TextInput.vue";
 import { forgotPassword } from "@/api/auth";
+import errorHandler from "@/util/errorHandler";
 export default {
     name: "ForgotPassword",
 
@@ -58,12 +59,7 @@ export default {
                 })
                 .catch((error) => {
                     this.loading = false;
-                    this.$wkToast(
-                        error.data.message || "Something went wrong. Do not fret, we are looking into it already",
-                        {
-                            className: ["wk-alert"],
-                        }
-                    );
+                    errorHandler(error, true);
                 });
         },
     },
