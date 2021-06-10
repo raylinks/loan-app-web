@@ -29,6 +29,7 @@
 import Button from "../components/Button.vue";
 import TextInput from "../components/TextInput.vue";
 import { resetPassword } from "@/api/auth";
+import errorHandler from "@/util/errorHandler";
 export default {
     name: "CreatePassword",
 
@@ -75,12 +76,7 @@ export default {
                 .catch((error) => {
                     this.loading = false;
                     console.dir(error);
-                    this.$wkToast(
-                        error.data.message || "Something went wrong. Do not fret, we are looking into it already",
-                        {
-                            className: ["wk-alert"],
-                        }
-                    );
+                    errorHandler(error, true);
                 });
         },
     },

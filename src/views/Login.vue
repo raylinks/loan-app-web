@@ -38,6 +38,7 @@
 import Button from "../components/Button.vue";
 import TextInput from "../components/TextInput.vue";
 import { loginUser } from "@/api/auth";
+import errorHandler from "@/util/errorHandler";
 export default {
     name: "Login",
 
@@ -71,10 +72,7 @@ export default {
                 })
                 .catch((error) => {
                     this.loading = false;
-                    console.dir(error);
-                    this.$wkToast(error.data.message, {
-                        className: ["wk-alert"],
-                    });
+                    errorHandler(error, true);
                 });
         },
     },
