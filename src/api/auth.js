@@ -15,3 +15,7 @@ export const verifyToken = async (token) => {
 export const forgotPassword = async (email) => {
     return await http.post("/api/forgot-password", { email });
 };
+
+export const resetPassword = async (email) => {
+    return await http.post("/api/reset-password", { email });
+};
