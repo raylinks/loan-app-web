@@ -3,7 +3,7 @@ import router from "@/router";
 
 // This is the base URL where requests comes from
 const http = axios.create({
-    baseURL: process.env.VUE_APP_API_URL,
+    baseURL: "http://127.0.0.1:8000",
     proxyHeaders: false,
     credentials: false,
     timeout: 90000,

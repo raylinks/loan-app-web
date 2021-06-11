@@ -83,7 +83,7 @@ export default {
                 password: this.formData.password,
                 phone_number: this.formData.phoneNumber || "",
                 password_confirmation: this.confirmPassword,
-                callback_url: "http://localhost:8081",
+                callback_url: "http://localhost:8080",
             })
                 .then((res) => {
                     console.log(res);

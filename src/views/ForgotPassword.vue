@@ -5,7 +5,7 @@
             <p class="text-sm text-grey opacity-75 mt-3">A link would be sent to your email to complete the process</p>
         </div>
 
-        <form class="w-11/12 md:w-7/12 lg:w-5/12 xl:w-1/4 mx-auto mt-10">
+        <form class="w-11/12 md:w-7/12 lg:w-5/12 xl:w-1/4 mx-auto mt-10" @submit.prevent="submitForm">
             <div>
                 <text-input placeholder="Email address" type="email" required v-model="email" />
             </div>
@@ -47,10 +47,13 @@ export default {
     },
 
     methods: {
-        submit() {
+        submitForm() {
+
+           // alert('here');
             this.loading = true;
             forgotPassword(this.email)
                 .then((response) => {
+                              console.log(response);
                     this.loading = false;
                     this.$wkToast(response.data.message || "Successful, please check your mail");
                 })

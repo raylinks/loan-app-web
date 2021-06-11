@@ -9,11 +9,11 @@
 
         <form class="w-11/12 md:w-7/12 lg:w-5/12 xl:w-1/4 mx-auto mt-10" @submit.prevent="submit">
             <div>
-                <text-input placeholder="New Password" required v-model="password" />
+                <text-input placeholder="New Password" type="password" required v-model="password" />
             </div>
 
             <div class="mt-6">
-                <text-input placeholder="Confirm Password" required v-model="confirmPassword" />
+                <text-input placeholder="Confirm Password"  type="password" required v-model="confirmPassword" />
             </div>
 
             <div class="mt-6">
@@ -54,7 +54,7 @@ export default {
 
     methods: {
         submit() {
-            const { password, confirmPassword } = this;
+             const { password, confirmPassword } = this;
             if (password !== confirmPassword && (password || confirmPassword)) {
                 this.$wkToast("Passwords do not match", {
                     className: ["wk-warn"],
