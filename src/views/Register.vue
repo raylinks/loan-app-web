@@ -95,6 +95,8 @@ export default {
                     //     password: this.password,
                     // });
 
+                    localStorage.setItem("user", JSON.stringify(res.data.data));
+
                     this.$cookies.set("user", {
                         email: this.formData.email,
                         first_name: this.formData.firstName,

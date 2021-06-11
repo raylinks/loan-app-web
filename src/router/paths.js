@@ -1,5 +1,5 @@
 export default [
-    { path: "/", component: () => import("@/views/Login"), meta: { layout: "authentication" } },
+    { path: "/", component: () => import("@/views/Dashboard"), meta: { layout: "default" } },
     { path: "/login", component: () => import("@/views/Login"), meta: { layout: "authentication" } },
     { path: "/register", component: () => import("@/views/Register"), meta: { layout: "authentication" } },
     { path: "/forgot-password", component: () => import("@/views/ForgotPassword"), meta: { layout: "authentication" } },
