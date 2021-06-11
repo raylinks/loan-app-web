@@ -36,18 +36,15 @@ const showDefaultToastNotification = (message) =>
     });
 
 const showValidationToastNotification = (errors, message) => {
-    const errorCount = Object.values(errors).length;
+    const allValidationErrors = Object.values(errors);
+    const errorCount = allValidationErrors.length;
     if (errorCount < 1) {
         return showDefaultToastNotification(message);
     }
 
-    let content = document.createElement("div");
-    Object.values(errors)[0].map((error) => {
-        let list = document.createElement("p");
-        list.appendChild(document.createTextNode(error));
-        content.appendChild(list);
-    });
-    app.$wkToast(content, {
+    const mainError = allValidationErrors[0].message;
+
+    app.$wkToast(mainError, {
         className: ["wk-alert"],
     });
 };
