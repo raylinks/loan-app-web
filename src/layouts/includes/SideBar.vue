@@ -1,5 +1,5 @@
 <template>
-    <div class="h-screen hidden md:flex items-center px-3 w-full relative">
+    <div class="h-screen hidden md:flex items-center px-3 w-full side-bar fixed">
         <div>
             <div class="flex items-center">
                 <div class="w-16">
@@ -11,12 +11,12 @@
                 </div>
             </div>
 
-            <nav class="grid gap-6 ml-6 mt-8 w-full">
+            <nav class="grid gap-6 xl:ml-6 mt-8 w-full">
                 <router-link
                     v-for="route in routes"
                     :key="route.text"
                     :to="route.link"
-                    class="text-lg text-primary py-2 px-8 rounded-xl"
+                    class="text-primary py-2 pl-8 rounded-xl"
                     >{{ route.text }}</router-link
                 >
             </nav>
@@ -102,5 +102,9 @@ export default {
     border-radius: 20px;
     height: 50px;
     width: 100%;
+}
+
+.side-bar{
+    max-width: 250px;
 }
 </style>
