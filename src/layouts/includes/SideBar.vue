@@ -70,16 +70,16 @@ export default {
                     text: "Coupons",
                 },
                 {
-                    link: "/referrals",
-                    text: "Referrals",
-                },
-                {
-                    link: "/personal-information",
-                    text: "Personal Information",
+                    link: "/repayment",
+                    text: "Repayment",
                 },
                 {
                     link: "/loan-application",
                     text: "Loan Application",
+                },
+                {
+                    link: "/settings",
+                    text: "Settings",
                 },
                 {
                     link: "/help",
@@ -104,7 +104,7 @@ export default {
     width: 100%;
 }
 
-.side-bar{
+.side-bar {
     max-width: 250px;
 }
 </style>

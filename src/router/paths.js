@@ -4,9 +4,10 @@ export default [
     { path: "/referrals", component: () => import("@/views/Referrals"), meta: { layout: "default" } },
     { path: "/loan-application", component: () => import("@/views/LoanApplication"), meta: { layout: "default" } },
     { path: "/help", component: () => import("@/views/Help"), meta: { layout: "default" } },
+    { path: "/repayment", component: () => import("@/views/Repayment"), meta: { layout: "default" } },
     {
-        path: "/personal-information",
-        component: () => import("@/views/PersonalInformation"),
+        path: "/settings",
+        component: () => import("@/views/Settings"),
         meta: { layout: "default" },
     },
     { path: "/login", component: () => import("@/views/Login"), meta: { layout: "authentication" } },
