@@ -3,16 +3,21 @@
         <div class="mt-4">
             <p class="text-primary text-lg font-semibold">Account Settings</p>
 
-            <div class="relative">
+            <form class="relative" @submit.prevent="handleBvnVerify">
                 <div class="mt-4">
-                    <text-input placeholder="Enter your Bank Verification Number" />
+                    <text-input
+                        maxlength="11"
+                        v-model="bvn"
+                        required
+                        placeholder="Enter your Bank Verification Number"
+                    />
                 </div>
 
                 <!-- This button here will only show if bvn has not been verified or bvn is changed -->
                 <div class="absolute top-0 right-0 w-24 ml-10">
                     <Button>Verify</Button>
                 </div>
-            </div>
+            </form>
 
             <div class="mt-10 border-t border-darksecondary">
                 <div class="mt-6">
@@ -51,10 +56,14 @@
 import Button from "../../components/Button.vue";
 import TextInput from "../../components/TextInput.vue";
 import BankAccounts from "../Account/BankAccounts.vue";
+import { verifyBvn } from "@/api/profile";
+import errorHandler from "@/util/errorHandler";
 export default {
     data() {
         return {
             enterAccountDetails: true,
+            loading: false,
+            bvn: "",
         };
     },
 
@@ -62,6 +71,27 @@ export default {
         TextInput,
         Button,
         BankAccounts,
+    },
+
+    methods: {
+        handleBvnVerify() {
+            if (this.bvn.length < 11) {
+                this.loading = true;
+                verifyBvn({ bvn: this.bvn })
+                    .then((response) => {
+                        console.log(response);
+                        this.loading = false;
+                    })
+                    .catch((error) => {
+                        this.loading = false;
+                        errorHandler(error, true);
+                    });
+            } else {
+                this.$wkToast("Please enter a valid bvn", {
+                    className: ["wk-alert"],
+                });
+            }
+        },
     },
 };
 </script>
