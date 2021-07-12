@@ -1,6 +1,6 @@
 <template>
     <div class="pb-16">
-        <h1 class="text-2xl font-semibold text-primary">Loan Application</h1>
+        <h1 class="text-2xl font-semibold text-primary">Loan Request</h1>
 
         <div class="mt-6 lg:w-9/12 xl:w-7/12">
             <div class="grid md:grid-cols-2 gap-6">

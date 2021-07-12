@@ -74,8 +74,12 @@ export default {
                     text: "Repayment",
                 },
                 {
-                    link: "/loan-application",
-                    text: "Loan Application",
+                    link: "/loan-request",
+                    text: "Loan Request",
+                },
+                {
+                    link: "/transaction-page",
+                    text: "Transaction Page",
                 },
                 {
                     link: "/settings",
