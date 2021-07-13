@@ -4,7 +4,7 @@
             <h1 class="text-2xl font-semibold text-primary">Loan</h1>
         </div>
         <div class="mt-6 mb-6 grid grid-cols-5 gap-12 h-full">
-            <div class="col-span-3 border-r border-secondary h-full pr-6">
+            <div class="col-span-6 border-r border-secondary h-full pr-6">
                 <div class="flex items-center justify-between">
                     <h2 class="text-xl font-medium text-primary">Request</h2>
                     <div>
