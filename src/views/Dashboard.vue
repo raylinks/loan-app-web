@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="grid grid-cols-3 lg:grid-cols-5 gap-10 pb-10 lg:pb-0">
-            <div class="col-span-3">
+            <div class="col-span-3 pl-8 pr-8">
                 <div class="flex items-center justify-between">
                     <div>
                         <h1 class="text-2xl font-semibold text-primary">Overview</h1>

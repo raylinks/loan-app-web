@@ -33,7 +33,7 @@
                 </div>
             </div>
         </div>
-        <div class="mt-6">
+        <div class="mt-6 buttonWidth">
             <Button @click="save" :loading="loading">Save</Button>
         </div>
     </div>
@@ -143,4 +143,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.buttonWidth {
+    max-width: 250px;
+}
+</style>

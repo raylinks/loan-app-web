@@ -89,6 +89,7 @@ export default {};
 .card {
     min-width: 241px;
     height: 146px;
+    max-width: 350px;
 }
 
 .text-2xs {
