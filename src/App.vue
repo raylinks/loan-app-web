@@ -16,6 +16,10 @@ export default {
             return (this.$route.meta.layout || default_layout) + "-layout";
         },
     },
+    mounted() {
+        this.$cookies.set("theme", "default");
+        this.$cookies.set("hover-time", "1s");
+    },
 };
 </script>
 
