@@ -6,7 +6,7 @@ export const loginUser = async (data) => {
 };
 
 export async function registerUser(user) {
-    return await axios.post("https://credbolt-api.herokuapp.com/api/register/", user);
+    return await axios.post("/api/register/", user);
 }
 
 export const verifyToken = async (token) => {
