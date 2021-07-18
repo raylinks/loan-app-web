@@ -49,7 +49,7 @@
 import Button from "../components/Button.vue";
 import TextInput from "../components/TextInput.vue";
 import { registerUser } from "@/api/auth";
-import errorHandler from "@/util/errorHandler";
+//import errorHandler from "@/util/errorHandler";
 export default {
     name: "Login",
 
@@ -105,15 +105,16 @@ export default {
                         phone_number: this.phoneNumber || "",
                     });
 
-                    this.$wkToast("Account Created successfully");
+                   // this.$wkToast("Account Created successfully");
 
                     setTimeout(() => {
                         this.$router.push("/verify-email");
                     }, 1500);
                 })
                 .catch((error) => {
+                    console.log(error);
                     this.loading = false;
-                    errorHandler(error, true);
+                   // errorHandler(error, true);
                 });
         },
     },
