@@ -1,7 +1,7 @@
 <template>
-    <div class="h-screen hidden md:flex items-center px-3 w-full side-bar fixed">
+    <div class="h-screen md:flex items-center px-3 w-full side-bar fixed">
         <div>
-            <div class="flex items-center">
+            <div class="flex items-center pt-5">
                 <div class="w-16">
                     <img src="@/assets/images/image-placeholder.png" alt="image" class="w-full" />
                 </div>
@@ -20,6 +20,7 @@
                     >{{ route.text }}</router-link
                 >
             </nav>
+
             <div class="absolute bottom-0 mb-8 w-10/12 mx-auto inset-x-0">
                 <div class="w-full relative">
                     <input class="input px-5" placeholder="Search" />

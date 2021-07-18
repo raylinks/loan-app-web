@@ -11,6 +11,8 @@ import router from "./router";
 import "@/assets/css/tailwind.css";
 import "@/assets/css/font.css";
 import "@/assets/css/global.css";
+import "@/assets/css/all.min.css";
+import "@/assets/css/extra.css";
 import "vue3-toast-single/dist/toast.css";
 
 const app = createApp(App);
