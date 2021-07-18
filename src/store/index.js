@@ -1,4 +1,4 @@
-import { createStore } from "vuex";
+import { createStore, createLogger } from "vuex";
 //import createLogger from "vuex/dist/logger";
 import auth from "./modules/auth";
 
@@ -12,6 +12,7 @@ export default createStore({
     modules: {
         auth,
     },
-    strict: debug
+    strict: debug,
+    plugins:  [createLogger()]
 
 });
