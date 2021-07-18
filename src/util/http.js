@@ -6,7 +6,7 @@ dotenv.config();
 
 // This is the base URL where requests comes from
 const http = axios.create({
-    baseURL: "http://credbolt-api.herokuapp.com", //process.env.API_APP_URL,
+    baseURL: "https://credbolt-api.herokuapp.com", //process.env.API_APP_URL,
     proxyHeaders: false,
     credentials: false,
     timeout: 90000,

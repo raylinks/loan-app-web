@@ -5,7 +5,7 @@ export const loginUser = async (data) => {
 };
 
 export async function registerUser(user) {
-    return await http.post("/api/register/", user);
+    return await http.post("/api/register", user);
 }
 
 export const verifyToken = async (token) => {
