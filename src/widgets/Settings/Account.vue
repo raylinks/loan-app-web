@@ -42,7 +42,7 @@
                             <p class="text-sm text-primary opacity-40 mt-4">OLAWALE AHMED JONATHAN</p>
                         </div>
 
-                        <div class="mt-5">
+                        <div class="mt-5 buttonWidth">
                             <Button>Save Account Details</Button>
                         </div>
                     </div>
@@ -96,4 +96,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.buttonWidth {
+    max-width: 250px;
+}
+</style>
