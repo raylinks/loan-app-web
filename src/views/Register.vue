@@ -1,49 +1,59 @@
 <template>
-    <div class="w-full">
-        <div class="text-center">
-            <h1 class="text-primary font-bold text-2xl">Create an account</h1>
-            <p class="text-sm text-grey opacity-75 mt-3">Let's get to know you</p>
+    <div class="wd_contact_wrapper2 wd-fixer2">
+        <!-- <div class="wd_overlay"></div> -->
+        <div class="wd_form">
+
+            <div class="wd_layer">
+                <div class="text-center">
+                    <h1 class="text-primary font-bold text-black text-2xl">Create an account</h1>
+                    <p class="text-sm text-black mt-3">Let's get to know you</p>
+                </div>
+
+                <form class="w-11/12  mx-auto mt-10" @submit.prevent="submitForm">
+                    <div class="grid grid-cols-2 gap-5">
+                        <div>
+                            <text-input placeholder="First name" type="text" required v-model="formData.firstName" />
+                        </div>
+                        <div>
+                            <text-input placeholder="Last name" type="text" required v-model="formData.lastName" />
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <text-input placeholder="Email Address" type="email" required v-model="formData.email" />
+                    </div>
+                    <div class="mt-6">
+                        <text-input placeholder="Phone Number" type="number" required v-model="formData.phoneNumber" />
+                    </div>
+                    <div class="grid grid-cols-2 gap-5 mt-6">
+                        <div>
+                            <text-input placeholder="Password" type="password" required v-model="formData.password" />
+                        </div>
+                        <div>
+                            <text-input placeholder="Confirm Password" type="password" required v-model="confirmPassword" />
+                        </div>
+                    </div>
+
+                    <div class="mt-10">
+                        <Button :loading="loading">
+                            Continue
+                        </Button>
+                    </div>
+                </form>
+
+                <div class="text-center mt-8">
+                    <p class="text-black text-sm">
+                        Already have an account?
+                        <router-link to="/login" class="underline text-red-secondary">Login here</router-link>
+                    </p>
+                </div>
+            </div>
         </div>
 
-        <form class="w-11/12 md:w-7/12 lg:w-5/12 xl:w-1/4 mx-auto mt-10" @submit.prevent="submitForm">
-            <div class="grid grid-cols-2 gap-5">
-                <div>
-                    <text-input placeholder="First name" type="text" required v-model="formData.firstName" />
-                </div>
-                <div>
-                    <text-input placeholder="Last name" type="text" required v-model="formData.lastName" />
-                </div>
-            </div>
-            <div class="mt-6">
-                <text-input placeholder="Email Address" type="email" required v-model="formData.email" />
-            </div>
-            <div class="mt-6">
-                <text-input placeholder="Phone Number" type="number" required v-model="formData.phoneNumber" />
-            </div>
-            <div class="grid grid-cols-2 gap-5 mt-6">
-                <div>
-                    <text-input placeholder="Password" type="password" required v-model="formData.password" />
-                </div>
-                <div>
-                    <text-input placeholder="Confirm Password" type="password" required v-model="confirmPassword" />
-                </div>
-            </div>
-
-            <div class="mt-10">
-                <Button :loading="loading">
-                    Continue
-                </Button>
-            </div>
-        </form>
-
-        <div class="text-center mt-8">
-            <p class="text-grey text-sm">
-                Already have an account?
-                <router-link to="/login" class="underline text-red-secondary">Login here</router-link>
-            </p>
-        </div>
+            
     </div>
+
 </template>
+
 
 <script>
 import Button from "../components/Button.vue";

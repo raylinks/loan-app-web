@@ -1,7 +1,7 @@
 <template>
-    <div class="h-screen w-full bg-white flex items-center justify-center">
-        <div class="absolute top-0 left-0 pt-8 pl-10">
-            <img src="@/assets/images/logo.png" alt="logo" class="w-32" />
+    <div class="">
+        <div class="flex flex-wrap wd_logo">
+            <img src="@/assets/images/creditwolf2.svg" alt="logo" class="w-32" />
         </div>
 
         <main class="w-full">
