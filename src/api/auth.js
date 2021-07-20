@@ -1,7 +1,7 @@
 import http from "@/util/http";
 
 export const loginUser = async (data) => {
-    return await http.post("/api/login/", data);
+    return await http.post("/api/login", data);
 };
 
 export async function registerUser(user) {
