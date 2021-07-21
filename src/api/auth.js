@@ -2,7 +2,7 @@ import http from "@/util/http";
 import axios from "axios";
 
 export const loginUser = async (data) => {
-    return await http.post("/api/login/", data);
+    return await http.post("/api/login", data);
 };
 
 export async function registerUser(user) {
