@@ -72,7 +72,9 @@ export default {
             loginUser({ email, password })
                 .then((response) => {
                     this.loading = false;
-                    console.log(response);
+                    // const respData = response.data.data
+                    localStorage.setItem('token', response.data.data.token)
+                    localStorage.setItem('user', JSON.stringify(response.data.data.user))
                     this.$wkToast("Logged in successfully");
 
                     setTimeout(() => {

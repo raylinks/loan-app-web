@@ -1,9 +1,12 @@
 import axios from "axios";
 import router from "@/router";
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 // This is the base URL where requests comes from
 const http = axios.create({
-    baseURL: "https://credbolt-api.herokuapp.com",
+    baseURL: "https://credbolt-api.herokuapp.com", //process.env.API_APP_URL,
     proxyHeaders: false,
     credentials: false,
     timeout: 90000,
