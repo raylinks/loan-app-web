@@ -6,69 +6,39 @@
                     <table class="min-w-max w-full table-auto">
                         <thead class="bg-gray-600">
                             <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
-                                <th class="py-3 px-6 text-left">Account Number</th>
-                                <th class="py-3 px-6 text-left">Client</th>
+                                <th class="py-3 px-6 text-left">Reference</th>
+                                <th class="py-3 px-6 text-left">Type</th>
                                 <th class="py-3 px-6 text-center">Amount</th>
                                 <th class="py-3 px-6 text-center">Status</th>
                                 <th class="py-3 px-6 text-center">Date</th>
                             </tr>
                         </thead>
                         <tbody class="text-gray-600 text-sm font-light">
-                            <tr class="border-b border-gray-200 hover:bg-gray-100">
-                                <td class="py-3 px-6 text-left whitespace-nowrap">
+                           
+                            
+                            
+                            <tr v-for="(transaction) in transactions" :key="transaction" class="border-b border-gray-200 bg-gray-50 hover:bg-gray-100">
+                                <td class="py-3 px-6 text-left">
                                     <div class="flex items-center">
-                                        <span class="font-medium">1234-xxxx-xxxx</span>
+                                        <span class="font-medium">{{transaction.reference}}</span>
                                     </div>
                                 </td>
                                 <td class="py-3 px-6 text-left">
                                     <div class="flex items-center">
-                                        <div class="mr-2">
-                                            <img class="w-6 h-6 rounded-full" src="https://randomuser.me/api/portraits/men/1.jpg"/>
-                                        </div>
-                                        <span>Ade Tayo</span>
+                                        <span>{{transaction.type}}</span>
                                     </div>
                                 </td>
                                 <td class="py-3 px-6 text-center">
                                     <div class="flex items-center justify-center">
-                                        <span class="font-medium">$10,000,000</span>
+                                        <span class="font-medium">{{transaction.loan.amount}}</span>
                                     </div>
                                 </td>
                                 <td class="py-3 px-6 text-center">
-                                    <span class="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">Active</span>
-                                </td>
-                                <td class="py-3 px-6 text-center">
-                                    <div class="flex item-center justify-center">
-                                        <span class="font-medium">12-12-2021</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            
-                            
-                            <tr v-for="(account) in accounts" :key="account" class="border-b border-gray-200 bg-gray-50 hover:bg-gray-100">
-                                <td class="py-3 px-6 text-left">
-                                    <div class="flex items-center">
-                                        <span class="font-medium">{{ account.accountNumber }}</span>
-                                    </div>
-                                </td>
-                                <td class="py-3 px-6 text-left">
-                                    <div class="flex items-center">
-                                        <div class="mr-2">
-                                            <img class="w-6 h-6 rounded-full" src="https://randomuser.me/api/portraits/women/6.jpg"/>
-                                        </div>
-                                        <span>{{ account.client }}</span>
-                                    </div>
-                                </td>
-                                <td class="py-3 px-6 text-center">
-                                    <div class="flex items-center justify-center">
-                                        <span class="font-medium">{{ account.amount }}</span>
-                                    </div>
-                                </td>
-                                <td class="py-3 px-6 text-center">
-                                    <span class="bg-yellow-200 text-yellow-600 py-1 px-3 rounded-full text-xs">{{ account.status }}</span>
+                                    <span class="flex items-center justify-center">{{transaction.status}} </span>
                                 </td>
                                 <td class="py-3 px-6 text-center">
                                     <div class="flex item-center justify-center">
-                                        <span class="font-medium">{{ account.date }}</span>
+                                        <span class="font-medium">{{transaction.created_at}}</span>
                                     </div>
                                 </td>
                             </tr>
@@ -82,20 +52,36 @@
 </template>
 
 <script>
+import { listTransactions } from "@/api/transaction";
+import errorHandler from "@/util/errorHandler";
 export default {
     // Change data with value from api
     components: {  },
 
     data(){
       return {
-        // initial state
-        accounts: [
-          {accountNumber: "1234-xxxx-xxxx", client : "Jeff Bezos", amount : "$5 000 000", status : "Pending", date : "12-12-2021"},
-          {accountNumber: "1234-xxxx-xxxx", client : "Mark Zurg", amount : "$5 000 000", status : "Complete", date : "12-12-2021"},
-          {accountNumber: "1234-xxxx-xxxx", client : "Bill Gates", amount : "$5 000 000", status : "Pending", date : "12-12-2021"}
-        ]
+       
+        transactions : []
+         
+        
       }
-    }
+    },
+      created() {
+         this.loading = false;
+            listTransactions()
+                .then((response) => {
+                    console.log(response);
+                    this.loading = false;
+                    this.transactions = response.data.data;
+                 
+                })
+                .catch((error) => {
+                    console.log(error);
+                    this.loading = false;
+                    errorHandler(error, true);
+                });
+        
+    },
 };
 </script>
 
