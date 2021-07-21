@@ -6,8 +6,8 @@
         <div class="mt-8">
             <div class="countdown rounded-3xl flex items-center px-5 relative" coundown="50%">
                 <div class="relative z-40">
-                    <p class="text-2xl font-medium text-primary">₦3200.00</p>
-                    <p class="text-primary opacity-50 text-sm">10 Days Left</p>
+                    <p class="text-2xl font-medium text-primary">₦{{user.eligible_amount}}</p>
+                    <p class="text-primary opacity-50 text-sm">14 Days Left</p>
                 </div>
 
                 <div class="countdown-display" style="width: 60%"></div>
@@ -17,7 +17,29 @@
 </template>
 
 <script>
-export default {};
+
+export default {
+     components: { },
+
+    data(){
+      return {
+        amount: "",
+        transactions : []
+         
+        
+      }
+    },
+     computed: {
+        user() {
+            return JSON.parse(localStorage.getItem("user")) || {};
+        },
+
+        ineligibleAmount() {
+            return Number(this.amount) > Number(this.user.eligible_amount);
+        },
+    },
+    
+};
 </script>
 
 <style scoped>

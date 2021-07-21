@@ -70,7 +70,7 @@ export default {
          this.loading = false;
             listTransactions()
                 .then((response) => {
-                    console.log(response);
+                
                     this.loading = false;
                     this.transactions = response.data.data;
                  
