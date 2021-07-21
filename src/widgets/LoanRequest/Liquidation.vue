@@ -5,7 +5,7 @@
                 <h1 class="text-2xl font-semibold text-primary">Liquidation</h1>
             </div>
             <div class="">
-                <p> Liquidtion is here </p>
+                <!-- <p> Liquidtion is here </p> -->
             </div>
         </div>
     </div>
