@@ -8,7 +8,7 @@
                 <div class="flex items-center justify-between">
                     <h2 class="text-xl font-medium text-primary">Request</h2>
                     <div>
-                        <p class="text-sm text-grey">Maximum loan amount: N{{ user.eligible_amount }}</p>
+                        <p class="text-sm text-grey">Maximum loan amount: &#x20A6;{{ user.eligible_amount }}</p>
                     </div>
                 </div>
                 <div class="slidecontainer">
@@ -17,7 +17,7 @@
 
                 <form class="mt-6" @submit.prevent="submit">
                     <div>
-                        <text-input v-model="amount" :value="amount" placeholder="Enter amount you want to borrow" required />
+                        <text-input v-model="amount" :value="`&#x20A6;${amount}`" placeholder="Enter amount you want to borrow" required />
                     </div>
                     <div>
                         <p class="text-xs text-primary opacity-50 mt-1 ml-1">Interest Rate: 1% daily</p>
