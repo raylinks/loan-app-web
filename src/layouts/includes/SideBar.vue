@@ -21,7 +21,7 @@
                 >
             </nav>
 
-            <div class="absolute bottom-0 mb-20 lg:mb-8 w-10/12 mx-auto inset-x-0">
+            <div class="absolute bottom-0 mb-8 w-10/12 mx-auto inset-x-0">
                 <div class="w-full relative">
                     <input class="input px-5" placeholder="Search" />
 
@@ -38,6 +38,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 </template>
 
@@ -109,12 +110,7 @@ export default {
 }
 
 .side-bar {
+    max-width: 250px;
     background-color: rgb(255, 188, 188);
-}
-
-@media screen and (min-width: 640px) {
-    .side-bar {
-        max-width: 250px;
-    }
 }
 </style>
