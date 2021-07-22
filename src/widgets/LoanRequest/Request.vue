@@ -79,7 +79,6 @@ export default {
                 })
                 .catch((error) => {
                     this.loading = false;
-                    console.dir(error);
                     errorHandler(error, true);
                 });
         },

@@ -1,5 +1,8 @@
 import axios from "axios";
 import router from "@/router";
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 // This is the base URL where requests comes from
 const http = axios.create({

@@ -61,18 +61,18 @@ export default {
                     link: "/",
                     text: "Overview",
                 },
-                {
-                    link: "/account",
-                    text: "Account",
-                },
-                {
-                    link: "/coupons",
-                    text: "Coupons",
-                },
-                {
-                    link: "/repayment",
-                    text: "Repayment",
-                },
+                // {
+                //     link: "/account",
+                //     text: "Account",
+                // },
+                // {
+                //     link: "/coupons",
+                //     text: "Coupons",
+                // },
+                // {
+                //     link: "/repayment",
+                //     text: "Repayment",
+                // },
                 {
                     link: "/loan-request",
                     text: "Loan Request",

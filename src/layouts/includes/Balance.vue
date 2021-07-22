@@ -17,7 +17,7 @@
                             />
                         </svg>
 
-                        <p class="text-grey text-sm font-medium ml-2">N25,000</p>
+                        <p class="text-grey text-sm font-medium ml-2">N0.00</p>
                     </div>
                     <div class="flex items-center mt-2">
                         <svg
@@ -37,7 +37,7 @@
                             />
                         </svg>
 
-                        <p class="text-grey text-sm font-medium ml-2">N25,000</p>
+                        <p class="text-grey text-sm font-medium ml-2">N{{transactions}}</p>
                     </div>
                 </div>
 
@@ -64,7 +64,7 @@
                             <path d="M8.125 4.375H6.875V8.125H10.625V6.875H8.125V4.375Z" fill="black" />
                         </svg>
 
-                        <p class="text-black text-sm font-medium ml-1">N25,000</p>
+                        <p class="text-black text-sm font-medium ml-1">N{{ user.eligible_amount }}</p>
                     </div>
                     <div class="flex items-center mt-2">
                         <p class="text-black text-2xs">20.05.2021</p>
@@ -82,7 +82,46 @@
 </template>
 
 <script>
-export default {};
+import { outgoingTransaction } from "@/api/dashboard";
+import errorHandler from "@/util/errorHandler";
+export default {
+     components: { },
+
+    data(){
+      return {
+        amount: "",
+        transactions : []
+         
+        
+      }
+    },
+     computed: {
+        user() {
+            return JSON.parse(localStorage.getItem("user")) || {};
+        },
+
+        ineligibleAmount() {
+            return Number(this.amount) > Number(this.user.eligible_amount);
+        },
+    },
+      created() {
+         this.loading = false;
+            outgoingTransaction()
+                .then((response) => {
+                    console.log(response);
+                    // this.loading = false;
+                     this.transactions = response.data.data;
+                 
+                })
+                .catch((error) => {
+                    console.log(error);
+                    this.loading = false;
+                    errorHandler(error, true);
+                });
+        
+    },
+    
+};
 </script>
 
 <style scoped>

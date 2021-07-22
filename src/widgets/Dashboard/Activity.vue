@@ -1,7 +1,7 @@
 <template>
     <div>
-        <p class="text-4xl font-semibold text-red-default">₦3,200.00</p>
-        <p class="text-xs text-primary font-medium opacity-75 mt-2">Thursday, 10 January 2021</p>
+        <p class="text-4xl font-semibold text-red-default">₦0,000.00</p>
+        <p class="text-xs text-primary font-medium opacity-75 mt-2">...</p>
 
         <p class="text-sm font-medium text-primary mt-5">Today’s Coupons</p>
 
@@ -35,8 +35,32 @@
     </div>
 </template>
 
+
 <script>
-export default {};
+
+export default {
+     components: { },
+
+    data(){
+      return {
+        amount: "",
+        transactions : []
+         
+        
+      }
+    },
+     computed: {
+        user() {
+            return JSON.parse(localStorage.getItem("user")) || {};
+        },
+
+        ineligibleAmount() {
+            return Number(this.amount) > Number(this.user.eligible_amount);
+        },
+    },
+    
+};
 </script>
+
 
 <style></style>

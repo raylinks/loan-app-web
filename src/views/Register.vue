@@ -122,6 +122,7 @@ export default {
                     }, 1500);
                 })
                 .catch((error) => {
+                    console.log(error);
                     this.loading = false;
                     errorHandler(error, true);
                 });

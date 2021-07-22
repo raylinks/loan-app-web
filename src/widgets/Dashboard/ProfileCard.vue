@@ -5,19 +5,41 @@
         </div>
 
         <div class="mt-8 text-center">
-            <p class="text-lg font-semibold text-primary text-center">Seyi murdoch</p>
+            <p class="text-lg font-semibold text-primary text-center">{{user.first_name}}</p>
 
             <div>
-                <button class="bg-grey rounded-full h-10 w-10/12 mx-auto mt-5 text-primary font-medium">
+                <router-link to="/transaction-page" class="bg-grey rounded-full h-10 w-10/12 mx-auto mt-5 text-primary font-medium" tag="button">
                     Information
-                </button>
+                </router-link>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-export default {};
+
+export default {
+     components: { },
+
+    data(){
+      return {
+        amount: "",
+        transactions : []
+         
+        
+      }
+    },
+     computed: {
+        user() {
+            return JSON.parse(localStorage.getItem("user")) || {};
+        },
+
+        ineligibleAmount() {
+            return Number(this.amount) > Number(this.user.eligible_amount);
+        },
+    },
+    
+};
 </script>
 
 <style></style>
