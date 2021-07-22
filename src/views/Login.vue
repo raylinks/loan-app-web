@@ -2,10 +2,9 @@
     <div class="wd_contact_wrapper wd-fixer">
         <!-- <div class="wd_overlay"></div> -->
         <div class="wd_form">
-
             <div class="wd_layer">
                 <div class="text-center">
-                    <h1 class="text-primary font-bold text-black text-2xl">SIGN IN</h1>
+                    <h1 class="text-primary font-bold text-2xl">SIGN IN</h1>
                     <p class="text-sm text-black mt-3">Welcome back! Good to have you here</p>
                 </div>
 
@@ -17,9 +16,7 @@
                         <text-input placeholder="Password" type="password" required v-model="password" />
                     </div>
                     <div class="text-right my-3">
-                        <router-link to="/forgot-password" class="text-black text-xs"
-                            >Forgot password?</router-link
-                        >
+                        <router-link to="/forgot-password" class="text-black text-xs">Forgot password?</router-link>
                     </div>
 
                     <div class="mt-6">
@@ -37,10 +34,7 @@
                 </div>
             </div>
         </div>
-
-            
     </div>
-
 </template>
 
 <script>
@@ -72,9 +66,16 @@ export default {
             loginUser({ email, password })
                 .then((response) => {
                     this.loading = false;
+<<<<<<< HEAD
                     // const respData = response.data.data
                     localStorage.setItem('token', response.data.data.token)
                     localStorage.setItem('user', JSON.stringify(response.data.data.user))
+=======
+                    const res = response.data.data
+                    console.log(response);
+                    localStorage.setItem("user", res.user);
+                    localStorage.setItem("token", res.token);
+>>>>>>> 9b0092118e9b0650922e6caf060b2bbbbc218512
                     this.$wkToast("Logged in successfully");
 
                     setTimeout(() => {
