@@ -28,6 +28,10 @@
     .wd_menu_btn {
         visibility: hidden;
     }
+
+    .side_fixer {
+        margin-top: -70%;
+    }
 }
 
 
