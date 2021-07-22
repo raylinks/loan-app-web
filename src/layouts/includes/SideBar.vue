@@ -1,6 +1,6 @@
 <template>
-    <div class="h-screen md:flex items-center px-3 w-full side-bar fixed z-40">
-        <div>
+    <div class="h-screen md:flex items-center px-3 w-full side-bar fixed">
+        <div class="side_fixer">
             <div class="flex items-center pt-5">
                 <div class="w-16">
                     <img src="@/assets/images/image-placeholder.png" alt="image" class="w-full" />
