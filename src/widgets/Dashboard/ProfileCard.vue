@@ -4,13 +4,13 @@
             <img src="@/assets/images/placeholder-2.png" alt="image" class="w-full" />
         </div>
 
-        <div class="mt-8 text-center">
+        <div class="mt-8 mb-3 text-center">
             <p class="text-lg font-semibold text-primary text-center">{{user.first_name}}</p>
 
-            <div>
-                <router-link to="/transaction-page" class="bg-grey rounded-full h-10 w-10/12 mx-auto mt-5 text-primary font-medium" tag="button">
-                    Information
-                </router-link>
+            <div class="bg-grey px-10 py-2 rounded-full h-10 w-10/12 mx-auto mt-5 text-primary font-medium">
+                    <router-link to="/transaction-page" tag="button">
+                       <p> Information</p>
+                    </router-link>
             </div>
         </div>
     </div>
