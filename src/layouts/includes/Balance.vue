@@ -16,8 +16,8 @@
                                 stroke-linejoin="round"
                             />
                         </svg>
-
-                        <p class="text-grey text-sm font-medium ml-2">N0.00</p>
+                            <!-- this is sign for naira &#x20A6;-->
+                        <p class="text-grey text-sm font-medium ml-2">&#x20A6;0.00</p>
                     </div>
                     <div class="flex items-center mt-2">
                         <svg
@@ -37,7 +37,7 @@
                             />
                         </svg>
 
-                        <p class="text-grey text-sm font-medium ml-2">N{{transactions}}</p>
+                        <p class="text-grey text-sm font-medium ml-2">&#x20A6;{{transactions}}</p>
                     </div>
                 </div>
 
@@ -64,7 +64,7 @@
                             <path d="M8.125 4.375H6.875V8.125H10.625V6.875H8.125V4.375Z" fill="black" />
                         </svg>
 
-                        <p class="text-black text-sm font-medium ml-1">N{{ user.eligible_amount }}</p>
+                        <p class="text-black text-sm font-medium ml-1">&#x20A6;{{ user.eligible_amount }}</p>
                     </div>
                     <div class="flex items-center mt-2">
                         <p class="text-black text-2xs">20.05.2021</p>
