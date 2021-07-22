@@ -68,7 +68,7 @@ export default {
                     this.loading = false;
                     const res = response.data.data
                     console.log(response);
-                    localStorage.setItem("user", res.user);
+                    localStorage.setItem("user", JSON.stringify(res.user));
                     localStorage.setItem("token", res.token);
                     this.$wkToast("Logged in successfully");
 
