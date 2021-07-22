@@ -12,7 +12,7 @@
                     </div>
                 </div>
                 <div class="slidecontainer">
-                    <input type="range" min="1" max="100" class="slider" id="myRange" v-model="amount">
+                    <input type="range" min="1" :max="user.eligible_amount" class="slider" id="myRange" v-model="amount">
                 </div>
 
                 <form class="mt-6" @submit.prevent="submit">
