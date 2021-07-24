@@ -112,5 +112,6 @@ export default {
 .side-bar {
     max-width: 250px;
     background-color: rgb(255, 188, 188);
+    z-index: 999;
 }
 </style>
