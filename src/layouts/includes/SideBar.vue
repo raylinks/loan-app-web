@@ -19,6 +19,9 @@
                     class="text-primary py-2 pl-8 rounded-xl"
                     >{{ route.text }}</router-link
                 >
+            <div class="sign_out">
+                <button @click="signOutBtn()" class="">Sign Out</button>
+            </div>
             </nav>
 
             <div class="absolute bottom-0 mb-8 w-10/12 mx-auto inset-x-0">
@@ -93,6 +96,14 @@ export default {
             ],
         };
     },
+
+    methods:{
+        signOutBtn(){
+            localStorage.removeItem("token")
+            this.$wkToast("Signout successful");
+            this.$router.push('/login'); 
+    }
+  }
 };
 </script>
 
