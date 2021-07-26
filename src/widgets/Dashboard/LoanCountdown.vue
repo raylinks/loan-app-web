@@ -64,7 +64,7 @@ export default {
 
     methods:{
         goToLiquidation(){
-            this.$router.push('/loan-request'); 
+            this.$router.push('/loan-request2'); 
         }
     },
 

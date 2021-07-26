@@ -107,6 +107,13 @@
   width: 100%; /* Width of the outside container */
 }
 
+.slidecontainer2 {
+  width: 90%; /* Width of the outside container */
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
 /* The slider itself */
 .slider {
   -webkit-appearance: none;
@@ -296,3 +303,73 @@ svg.my_svg circle:nth-child(2)
 /* ******************************* */
 /* ***** Signout Button Ends ***** */
 /* ******************************* */
+
+/* ---------------------------------------------------- */
+
+/* ******************************* */
+/* ***** liquidation ***** */
+/* ******************************* */
+@media (min-width: 720px) {
+
+  .liquidate_ {
+    display: flex;
+    height: 350px;
+  }
+
+  .liquidate_left {
+    width: auto;
+    padding-right: 10px;
+    /* background: rgb(238, 255, 238); */
+  }
+
+  .liquidate_right {
+    flex-grow: 1;
+    /* background: rgb(214, 214, 255); */
+  }
+
+  .liqui_Table {
+    margin-top: 5%;
+    text-align: center;
+    /* @import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap'); */
+    font-family: 'Monoton', cursive;
+    font-size: 30px;
+    color: #ED6D6D;
+
+  }
+
+
+}
+
+@media (max-width: 721px) {
+  
+  .liquidate_ {
+    display: bloxk;
+    height: 350px;
+  }
+  
+  .liquidate_left {
+    width: auto;
+    padding: 10px;
+    /* background: rgb(235, 220, 255); */
+  }
+  
+  .liquidate_right {
+    /* background: rgb(206, 253, 255); */
+    margin-top: 10%;
+  }
+  
+  .liqui_Table {
+    margin-top: 5%;
+    padding-bottom: 50px;
+    text-align: center;
+    /* @import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap'); */
+    font-family: 'Monoton', cursive;
+    font-size: 20px;
+    color: #ED6D6D;
+  }
+}
+
+/* ******************************* */
+/* ***** liquidation Ends ***** */
+/* ******************************* */
+

@@ -1,5 +1,5 @@
 <template>
-    <div class="h-full">
+    <div class="h-full lg:w-10/12 xl:w-10/12">
         <div>
             <h1 class="text-2xl font-semibold text-primary">Loan</h1>
         </div>

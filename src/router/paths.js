@@ -24,6 +24,12 @@ export default [
         meta: { layout: "default", requiresAuth: true },
     },
     {
+        name: "Loan Request2",
+        path: "/loan-request2",
+        component: () => import("@/views/LoanRequest2"),
+        meta: { layout: "default", requiresAuth: true },
+    },
+    {
         name: "Transaction Page",
         path: "/transaction-page",
         component: () => import("@/views/TransactionPage"),

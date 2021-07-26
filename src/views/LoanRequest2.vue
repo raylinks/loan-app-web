@@ -21,7 +21,7 @@ export default {
     components: { Tab, Request, Liquidation },
     data() {
         return {
-            currentTab: "Request",
+            currentTab: "Liquidation",
         };
     },
 };
