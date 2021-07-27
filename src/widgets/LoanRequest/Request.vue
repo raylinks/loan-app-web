@@ -17,7 +17,7 @@
 
                 <form class="mt-6" @submit.prevent="submit">
                     <div>
-                        <text-input v-model="amount" :value="`&#x20A6;${amount}`" placeholder="Enter amount you want to borrow" required />
+                        <text-input v-model="amount" :value="amount" placeholder="Enter amount you want to borrow" required />
                     </div>
                     <div>
                         <p class="text-xs text-primary opacity-50 mt-1 ml-1">Interest Rate: 1% daily</p>
