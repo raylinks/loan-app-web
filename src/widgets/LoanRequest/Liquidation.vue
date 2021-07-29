@@ -5,7 +5,7 @@
         </div>
         <div class="liquidate_" style="">
             <div class="liquidate_left">
-                <button @click="payWithMonnify">
+                <button>
                     
                     <div class="progress-card">
                         <div class="box">
@@ -29,7 +29,7 @@
                 </button>
             </div>
 
-            <div class="liquidate_right">
+            <!-- <div class="liquidate_right">
                 <div class="slidecontainer2">
                     <input type="range" min="0" max="365" step="1" class="slider" id="myRange" v-model="days">
                     <div class="liqui_Table">
@@ -48,7 +48,7 @@
 
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </template>
@@ -79,48 +79,49 @@ export default {
         document.head.appendChild(monnifyScript)
     },
 
-    methods: {
-        payWithMonnify() {
-            this.MonnifySDK.initialize({
-                amount: 5000,
-                currency: "NGN",
-                reference: '' + Math.floor((Math.random() * 1000000000) + 1),
-                customerName: "John Doe",
-                customerEmail: "monnify@monnify.com",
-                apiKey: "MK_TEST_SAF7HR5F3F",
-                contractCode: "4934121693",
-                paymentDescription: "Test Pay",
-                isTestMode: true,
-                metadata: {
-                    "name": "Damilare",
-                    "age": 45
-                },
-                paymentMethods: ["CARD", "ACCOUNT_TRANSFER"],
-                incomeSplitConfig: [
-                    {
-                        "subAccountCode": "MFY_SUB_342113621921",
-                        "feePercentage": 50,
-                        "splitAmount": 1900,
-                        "feeBearer": true
-                    },
-                    {
-                        "subAccountCode": "MFY_SUB_342113621922",
-                        "feePercentage": 50,
-                        "splitAmount": 2100,
-                        "feeBearer": true
-                    }
-                ],
-                onComplete: function (response) {
-                    //Implement what happens when transaction is completed.
-                    console.log(response);
-                },
-                onClose: function (data) {
-                    //Implement what should happen when the modal is closed here
-                    console.log(data);
-                }
-            });
-        },
-    },
+    // methods: {
+    //     payWithMonnify() {
+    //         this.MonnifySDK.initialize({
+    //             amount: 5000,
+    //             currency: "NGN",
+    //             reference: '' + Math.floor((Math.random() * 1000000000) + 1),
+    //             customerName: "John Doe",
+    //             customerEmail: "monnify@monnify.com",
+    //             apiKey: "MK_TEST_SAF7HR5F3F",
+    //             contractCode: "4934121693",
+    //             paymentDescription: "Test Pay",
+    //             isTestMode: true,
+    //             metadata: {
+    //                 "name": "Damilare",
+    //                 "age": 45
+    //             },
+    //             paymentMethods: ["CARD", "ACCOUNT_TRANSFER"],
+    //             incomeSplitConfig: [
+    //                 {
+    //                     "subAccountCode": "MFY_SUB_342113621921",
+    //                     "feePercentage": 50,
+    //                     "splitAmount": 1900,
+    //                     "feeBearer": true
+    //                 },
+    //                 {
+    //                     "subAccountCode": "MFY_SUB_342113621922",
+    //                     "feePercentage": 50,
+    //                     "splitAmount": 2100,
+    //                     "feeBearer": true
+    //                 }
+    //             ],
+    //             onComplete: function (response) {
+    //                 //Implement what happens when transaction is completed.
+    //                 console.log(response);
+    //             },
+    //             onClose: function (data) {
+    //                 //Implement what should happen when the modal is closed here
+    //                 console.log(data);
+    //             }
+    //         });
+    //     },
+    // },
+    
 };
 </script>
 

@@ -1,7 +1,30 @@
 <template>
     <div class="h-full lg:w-10/12 xl:w-10/12">
         <div>
-            <h1 class="text-2xl font-semibold text-primary">Loan</h1>
+            <h1 class="text-2xl font-semibold text-primary">Calculate Loan</h1>
+        </div>
+
+        <div class="slidecontainer2">
+            <input type="range" min="0" max="365" step="1" class="slider" id="myRange" v-model="days">
+            <div class="liqui_Table">
+                <table style="width:100%">
+                    <tr style="font-size: 17px;">
+                        <th>Amount</th>
+                        <th>Days</th>
+                        <th>Will Pay</th>
+                    </tr>
+                    <tr>
+                        <td>&#x20A6; {{loanAmount}}</td>
+                        <td> {{days}} </td>
+                        <td>&#x20A6; {{loanAmount + days*loanInterest}}</td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+
+        <div>
+            <h1 class="text-2xl font-semibold text-primary">Make Loan</h1>
         </div>
         <div class="mt-6 mb-6 grid grid-cols-5 gap-12 h-full">
             <div class="slide_wrap col-span-6 border-r border-secondary h-full pr-6">
@@ -56,6 +79,12 @@ export default {
         return {
             amount: 45,
             loading: false,
+            loanAmount: 7000,
+            loanInterest: 70,
+            timeRem: 2,
+            timeGiven: 14,
+            days: 10,
+            indexNo: 0,
         };
     },
 
