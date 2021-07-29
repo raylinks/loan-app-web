@@ -398,7 +398,7 @@ svg.my_svg2 circle:nth-child(3)
 /* ******************************* */
 
 .border_tab {
-    border-top-width: 1px;
+    border-top-width: 3px;
     border-color: rgb(255, 188, 188);
     border-radius: 14px;
 }
@@ -417,7 +417,7 @@ svg.my_svg2 circle:nth-child(3)
 
 /* Label formatting when open */
 .tab input:checked+label {
-    word-spacing: 5px;
+    /* word-spacing: 5px; */
     font-weight: bold;
     font-size: 1.25rem;
     padding: 1.25rem;
