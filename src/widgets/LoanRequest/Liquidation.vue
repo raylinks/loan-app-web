@@ -73,11 +73,11 @@ export default {
         }
     },
 
-    mounted() {
-        let monnifyScript = document.createElement('script')
-        monnifyScript.setAttribute('src', 'https://sdk.monnify.com/plugin/monnify.js')
-        document.head.appendChild(monnifyScript)
-    },
+    // mounted() {
+    //     let monnifyScript = document.createElement('script')
+    //     monnifyScript.setAttribute('src', 'https://sdk.monnify.com/plugin/monnify.js')
+    //     document.head.appendChild(monnifyScript)
+    // },
 
     // methods: {
     //     payWithMonnify() {

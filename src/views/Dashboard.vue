@@ -7,7 +7,7 @@
                         <h1 class="text-2xl font-semibold text-primary">Overview</h1>
                     </div>
 
-                    <div>
+                    <!-- <div>
                         <button class="bg-secondary px-5 rounded-full h-10 flex items-center focus:outline-none">
                             <div>
                                 <p class="text-xs text-primary font-medium">This Week</p>
@@ -30,7 +30,7 @@
                                 </svg>
                             </div>
                         </button>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-12 mt-8">
