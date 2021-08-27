@@ -6,7 +6,7 @@
 <script>
   function payWithPaystack(){
     var handler = PaystackPop.setup({
-      key: 'pk_test_86d32aa1nV4l1da7120ce530f0b221c3cb97cbcc',
+      key: 'pk_test_8c61937dac8a54b2447850ca4a6eb9d7d98ac0f0',
       email: 'customer@email.com',
       amount: 10000,
       currency: "NGN",
