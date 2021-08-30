@@ -49,14 +49,29 @@
                     </div>
                 </div>
             </div> -->
+
+            <paystack
+                :amount="amount"
+                :email="email"
+                :paystackkey="paystackkey"
+                :reference="reference"
+                :callback="callback"
+                :close="close"
+                :embed="false"
+            >
+            <i class="fa fa-money-bill-alt"></i>
+            Make Payment
+            </paystack>
         </div>
     </div>
 </template>
 
-<script>
+<script type="text/javascript">
+import paystack from 'vue-paystack';
+
 export default {
     components: {
-        
+        paystack
     },
 
     el: ".liquidate_right",
@@ -70,57 +85,33 @@ export default {
             timeGiven: 14,
             days: 10,
             indexNo: 0,
+
+            paystackkey: "pk_test_8c61937dac8a54b2447850ca4a6eb9d7d98ac0f0", //paystack public key
+            email: "foobar@example.com", // Customer email
+            amount: 1000000, // in kobo
         }
     },
 
-    // mounted() {
-    //     let monnifyScript = document.createElement('script')
-    //     monnifyScript.setAttribute('src', 'https://sdk.monnify.com/plugin/monnify.js')
-    //     document.head.appendChild(monnifyScript)
-    // },
+    computed: {
+      reference(){
+        let text = "";
+        let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-    // methods: {
-    //     payWithMonnify() {
-    //         this.MonnifySDK.initialize({
-    //             amount: 5000,
-    //             currency: "NGN",
-    //             reference: '' + Math.floor((Math.random() * 1000000000) + 1),
-    //             customerName: "John Doe",
-    //             customerEmail: "monnify@monnify.com",
-    //             apiKey: "MK_TEST_SAF7HR5F3F",
-    //             contractCode: "4934121693",
-    //             paymentDescription: "Test Pay",
-    //             isTestMode: true,
-    //             metadata: {
-    //                 "name": "Damilare",
-    //                 "age": 45
-    //             },
-    //             paymentMethods: ["CARD", "ACCOUNT_TRANSFER"],
-    //             incomeSplitConfig: [
-    //                 {
-    //                     "subAccountCode": "MFY_SUB_342113621921",
-    //                     "feePercentage": 50,
-    //                     "splitAmount": 1900,
-    //                     "feeBearer": true
-    //                 },
-    //                 {
-    //                     "subAccountCode": "MFY_SUB_342113621922",
-    //                     "feePercentage": 50,
-    //                     "splitAmount": 2100,
-    //                     "feeBearer": true
-    //                 }
-    //             ],
-    //             onComplete: function (response) {
-    //                 //Implement what happens when transaction is completed.
-    //                 console.log(response);
-    //             },
-    //             onClose: function (data) {
-    //                 //Implement what should happen when the modal is closed here
-    //                 console.log(data);
-    //             }
-    //         });
-    //     },
-    // },
+        for( let i=0; i < 10; i++ )
+          text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+        return text;
+      }
+    },
+    methods: {
+      callback: function(response){
+        console.log(response)
+      },
+      close: function(){
+          console.log("Payment closed")
+      }
+    }
+
     
 };
 </script>
